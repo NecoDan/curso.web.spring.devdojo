@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="br.com.curso.web.spring.devdojo.mapper.UsuarioMapper">
+
+    <resultMap id="Usuarios" type="br.com.curso.web.spring.devdojo.model.Usuario">
+        <id column="usuario_id" property="usuarioId"/>
+        <result column="login" property="login"/>
+        <result column="senha" property="senha"/>
+        <result column="data_lancamento" property="dataLancamento"/>
+        <result column="ativo" property="ativo"/>
+    </resultMap>
+
+    <select id="recuperarTodos" resultMap="Usuarios">
+        SELECT  * FROM usuario
+    </select>
+
+    <select id="recuperarUsuario" resultMap="Usuarios">
+        SELECT  *
+        FROM usuario
+        WHERE login = #{login}
+        AND senha = #{senha}
+    </select>
+
+    <select id="recuperarUsuariosPorLogin" parameterType="string" resultMap="Usuarios" >
+        <bind name="pattern" value="'%' + login + '%'" />
+        SELECT  *
+        FROM usuario
+        WHERE login like #{pattern}
+    </select>
+
+    <select id="recuperarUsuarioAtivos" parameterType="boolean" resultMap="Usuarios">
+        SELECT * FROM usuario WHERE ativo = #{ativo}
+    </select>
+
+    <insert id="inserir" parameterType="br.com.curso.web.spring.devdojo.model.Usuario" useGeneratedKeys="true">
+        INSERT INTO usuario (login,senha,data_lancamento,ativo) VALUES (#{login}, #{senha}, #{dataLancamento}, #{ativo});
+    </insert>
+
+    <insert id="inserirPor" parameterType="br.com.curso.web.spring.devdojo.model.Usuario" useGeneratedKeys="true"
+            keyColumn="usuario.usuario_id" keyProperty="usuarioId">
+        INSERT INTO usuario (login,senha,data_lancamento,ativo) VALUES (#{login}, #{senha}, #{dataLancamento}, #{ativo});
+    </insert>
+
+    <update id="atualizarPor" parameterType="br.com.curso.web.spring.devdojo.model.Usuario">
+            UPDATE usuario SET login =#{login}, senha =#{senha}, data_lancamento =#{dataLancamento}, ativo =#{ativo}  WHERE usuario_id =#{usuarioId}
+    </update>
+
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM usuario WHERE usuario_id= #{id}
+    </delete>
+
+</mapper>

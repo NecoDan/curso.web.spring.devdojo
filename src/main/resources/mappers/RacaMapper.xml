@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="br.com.curso.web.spring.devdojo.mapper.RacaMapper">
+
+    <resultMap id="Racas" type="br.com.curso.web.spring.devdojo.model.Raca">
+        <id column="raca_id" property="racaId"/>
+        <result column="login" property="descricao"/>
+        <result column="ativo" property="ativo"/>
+        <result column="data" property="data"/>
+        <association property="especie" resultMap="Especie"/>
+    </resultMap>
+
+    <resultMap id="Especie" type="br.com.curso.web.spring.devdojo.model.Especie">
+        <id column="especie_id" property="especieId"/>
+        <result column="descricao" property="descricao"/>
+        <result column="name" property="name"/>
+        <result column="ativo" property="ativo"/>
+        <result column="data_cadastro" property="dataCadastro"/>
+    </resultMap>
+
+    <select id="recuperarTodas" resultMap="Racas">
+        SELECT  * FROM raca
+    </select>
+
+    <select id="recuperarPorDescricao" parameterType="string" resultMap="Racas">
+        <bind name="pattern" value="'%' + descricao + '%'"/>
+        SELECT *
+        FROM raca
+        WHERE descricao like #{pattern}
+    </select>
+
+    <select id="recuperarRacaAtivas" parameterType="boolean" resultMap="Racas">
+        SELECT * FROM raca WHERE ativo = #{ativo}
+    </select>
+    <select id="recuperarPorId" parameterType="long" resultType="br.com.curso.web.spring.devdojo.model.Raca">
+        SELECT * FROM raca WHERE raca_id= #{id}
+    </select>
+
+    <insert id="inserir" parameterType="br.com.curso.web.spring.devdojo.model.Raca" useGeneratedKeys="true">
+        INSERT INTO raca (descricao, especie_id, ativo, data) VALUES (#{descricao}, #{especie.especieId}, #{ativo}, #{data});
+    </insert>
+
+    <insert id="inserirPor" parameterType="br.com.curso.web.spring.devdojo.model.Raca" useGeneratedKeys="true"
+            keyColumn="especie.especie_id" keyProperty="especieId">
+        INSERT INTO raca (descricao, especie_id, ativo, data) VALUES (#{descricao}, #{especie.especieId}, #{ativo}, #{data});
+    </insert>
+
+    <update id="atualizarPor" parameterType="br.com.curso.web.spring.devdojo.model.Raca">
+            UPDATE raca SET descricao =#{descricao}, especie_id =#{especie.especieId}, data =#{data}, ativo =#{ativo}  WHERE raca_id =#{racaId}
+    </update>
+
+    <delete id="excluirPorId" parameterType="long">
+        DELETE FROM raca WHERE raca_id= #{id}
+    </delete>
+</mapper>

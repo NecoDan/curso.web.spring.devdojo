@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="br.com.curso.web.spring.devdojo.mapper.EspecieMapper">
+
+    <resultMap id="Especies" type="br.com.curso.web.spring.devdojo.model.Especie">
+        <id column="especie_id" property="especieId"/>
+        <result column="descricao" property="descricao"/>
+        <result column="name" property="name"/>
+        <result column="ativo" property="ativo"/>
+        <result column="data_cadastro" property="dataCadastro"/>
+    </resultMap>
+
+    <select id="recuperarTodas" resultMap="Especies">
+        SELECT  * FROM especie
+    </select>
+
+    <select id="recuperarPorDescricao" parameterType="string" resultMap="Especies">
+        <bind name="pattern" value="'%' + descricao + '%'"/>
+        SELECT *
+        FROM especie
+        WHERE descricao like #{pattern}
+    </select>
+
+    <select id="recuperarEspecieAtivas" parameterType="boolean" resultMap="Especies">
+        SELECT * FROM especie WHERE ativo = #{ativo}
+    </select>
+    <select id="recuperarPorId" parameterType="long" resultType="br.com.curso.web.spring.devdojo.model.Especie">
+        SELECT * FROM especie WHERE especie_id= #{id}
+    </select>
+
+    <insert id="inserir" parameterType="br.com.curso.web.spring.devdojo.model.Especie" useGeneratedKeys="true">
+        INSERT INTO especie (descricao,name, ativo, data_cadastro) VALUES (#{descricao}, #{name}, #{ativo}, #{dataCadastro});
+    </insert>
+
+    <insert id="inserirPor" parameterType="br.com.curso.web.spring.devdojo.model.Especie" useGeneratedKeys="true"
+            keyColumn="especie.especie_id" keyProperty="especieId">
+        INSERT INTO especie (descricao,name, ativo, data_cadastro) VALUES (#{descricao}, #{name}, #{ativo}, #{dataCadastro});
+    </insert>
+
+    <update id="atualizarPor" parameterType="br.com.curso.web.spring.devdojo.model.Especie">
+            UPDATE especie SET descricao =#{descricao}, name =#{name}, data_cadastro =#{dataCadastro}, ativo =#{ativo}  WHERE especie_id =#{especieId}
+    </update>
+
+    <delete id="excluirPorId" parameterType="long">
+        DELETE FROM especie WHERE especie_id= #{id}
+    </delete>
+
+</mapper>
