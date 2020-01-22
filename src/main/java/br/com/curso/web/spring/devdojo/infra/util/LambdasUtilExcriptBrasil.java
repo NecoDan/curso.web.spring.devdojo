@@ -52,6 +52,10 @@ public class LambdasUtilExcriptBrasil {
         }
     }
 
+    public static void filtroStream(List<String> lista, Predicate<String> condicao) {
+        lista.stream().filter(condicao).forEach(System.out::println);
+    }
+
     static void executaTesteLambdas01() {
         System.out.println("Iniciando teste....");
 
@@ -131,11 +135,28 @@ public class LambdasUtilExcriptBrasil {
         filtro(estados, (s) -> s.length() > 10);
     }
 
-    static void executaTesteLambdasIteracaoInterna07(){
-    
+    static void executaTesteLambdasIteracaoInterna07() {
+        List<String> estados = Arrays.asList("Maranhao", "Parana", "Sao Paulo", "Sergipe", "Rio de Janeiro", "Santa Catarina");
+
+        System.out.println(" ");
+        System.out.println("Estados que iniciam com a letra S:");
+        filtroStream(estados, (s) -> s.startsWith("S"));
+
+        System.out.println(" ");
+        System.out.println("Estados que finalizam com a letra o:");
+        filtroStream(estados, (s) -> s.endsWith("o"));
+
+        System.out.println(" ");
+        System.out.println("Imprimindo toda a lista");
+        filtroStream(estados, (s) -> Boolean.TRUE);
+
+        System.out.println(" ");
+        System.out.println("Deixando de imprimir toda a lista");
+        filtroStream(estados, (s) -> Boolean.FALSE);
+
+        System.out.println(" ");
+        System.out.println("Imprime os nomes dos estados com mais de 10 caracteres:");
+        filtroStream(estados, (s) -> s.length() > 10);
     }
 
-    static void executaTesteLambdasIteracaoInterna08(){
-
-    }
 }
