@@ -1,7 +1,7 @@
 package br.com.curso.web.spring.devdojo.controller;
 
 import br.com.curso.web.spring.devdojo.model.Usuario;
-import br.com.curso.web.spring.devdojo.service.UsuarioService;
+import br.com.curso.web.spring.devdojo.service.IUsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UsuarioController {
 
-    private final UsuarioService usuarioService;
+    private final IUsuarioService IUsuarioService;
 
     @GetMapping
     public ResponseEntity<?> listAll() {
         try {
-            return new ResponseEntity<>(usuarioService.recuperarTodos(), HttpStatus.OK);
+            return new ResponseEntity<>(IUsuarioService.recuperarTodos(), HttpStatus.OK);
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Erro ao executar a busca de dados: " + ex.getMessage());
@@ -27,7 +27,7 @@ public class UsuarioController {
     @GetMapping(value = "/ativos")
     public ResponseEntity<?> ativos() {
         try {
-            return new ResponseEntity<>(usuarioService.recuperarUsuarioAtivos(Boolean.TRUE), HttpStatus.OK);
+            return new ResponseEntity<>(IUsuarioService.recuperarUsuarioAtivos(Boolean.TRUE), HttpStatus.OK);
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Erro ao executar a busca de dados." + ex.getMessage());
@@ -37,7 +37,7 @@ public class UsuarioController {
     @GetMapping(value = "/inativos")
     public ResponseEntity<?> inativos() {
         try {
-            return new ResponseEntity<>(usuarioService.recuperarUsuarioAtivos(Boolean.FALSE), HttpStatus.OK);
+            return new ResponseEntity<>(IUsuarioService.recuperarUsuarioAtivos(Boolean.FALSE), HttpStatus.OK);
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Erro ao executar a busca de dados." + ex.getMessage());
@@ -47,7 +47,7 @@ public class UsuarioController {
     @GetMapping(path = "/usuarioLogin")
     public ResponseEntity<?> usuarioLoginESenha(@RequestParam("login") String login, @RequestParam("senha") String senha) {
         try {
-            return new ResponseEntity<>(usuarioService.recuperarUsuario(login, senha), HttpStatus.OK);
+            return new ResponseEntity<>(IUsuarioService.recuperarUsuario(login, senha), HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .header("error", e.getMessage())
@@ -58,7 +58,7 @@ public class UsuarioController {
     @GetMapping(path = "/usuariosPorLogin")
     public ResponseEntity<?> usuariosPorLogin(@RequestParam("login") String login) {
         try {
-            return new ResponseEntity<>(usuarioService.recuperarUsuariosPorLogin(login), HttpStatus.OK);
+            return new ResponseEntity<>(IUsuarioService.recuperarUsuariosPorLogin(login), HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .header("error", e.getMessage())
@@ -69,7 +69,7 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Usuario usuario) {
         try {
-            usuarioService.salvar(usuario);
+            IUsuarioService.salvar(usuario);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -80,7 +80,7 @@ public class UsuarioController {
     @PutMapping
     public ResponseEntity<?> atualizar(@RequestBody Usuario usuario) {
         try {
-            usuarioService.atualizar(usuario);
+            IUsuarioService.atualizar(usuario);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -91,7 +91,7 @@ public class UsuarioController {
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         try {
-            usuarioService.excluirPorId(id);
+            IUsuarioService.excluirPorId(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

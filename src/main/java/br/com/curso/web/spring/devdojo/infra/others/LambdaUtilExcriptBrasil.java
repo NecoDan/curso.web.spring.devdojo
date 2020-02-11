@@ -1,4 +1,4 @@
-package br.com.curso.web.spring.devdojo.infra.util;
+package br.com.curso.web.spring.devdojo.infra.others;
 
 /*
  # As expressões lambdas podem ser definidas como métodos anônimos. Não são executadas em si próprios,expressões que não posuem nome.
@@ -40,7 +40,7 @@ interface ValorNumericoSecond {
 };
 
 
-public class LambdasUtilExcriptBrasil {
+public class LambdaUtilExcriptBrasil {
     public static void main(String[] args) {
         executaTesteLambdasIteracaoInterna07();
     }
