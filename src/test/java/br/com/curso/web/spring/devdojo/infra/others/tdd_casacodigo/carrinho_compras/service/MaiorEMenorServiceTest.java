@@ -1,8 +1,8 @@
-package br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.service;
+package br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.carrinho_compras.service;
 
-import br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.model.CarrinhoDeCompras;
-import br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.model.MaiorEMenor;
-import br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.model.Produto;
+import br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.carrinho_compras.model.CarrinhoDeCompras;
+import br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.carrinho_compras.negocio.MaiorEMenor;
+import br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.carrinho_compras.model.Produto;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 @Slf4j
-public class MaiorEMenorTest {
+public class MaiorEMenorServiceTest {
 
     @Test
     public void deveTestarProdutosMenorEMaiorAPartirCarrinhosComprasInicial() {

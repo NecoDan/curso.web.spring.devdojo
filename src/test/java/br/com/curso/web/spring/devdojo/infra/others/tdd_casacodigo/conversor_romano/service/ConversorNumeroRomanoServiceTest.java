@@ -1,7 +1,7 @@
-package br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.service;
+package br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.conversor_romano.service;
 
-import br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.model.SimbolNumeralRomano;
-import br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.negocio.ConversorNumeroRomano;
+import br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.conversor_romano.model.SimbolNumeralRomano;
+import br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.conversor_romano.negocio.ConversorNumeroRomanoService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import org.mockito.MockitoAnnotations;
 import static org.junit.Assert.assertEquals;
 
 @Slf4j
-public class ConversorNumeroRomanoTest {
+public class ConversorNumeroRomanoServiceTest {
 
     @Before
     public void setUp() {
@@ -20,7 +20,7 @@ public class ConversorNumeroRomanoTest {
     @Test
     public void deveRetornarUmNumeroInteiroAPartirCodigoNumeralUm() {
         // -- 01_Cenário
-        ConversorNumeroRomano c = ConversorNumeroRomano.builder().build();
+        ConversorNumeroRomanoService c = ConversorNumeroRomanoService.builder().build();
 
         // -- 02_Ação
         int numero = c.converte("I");
@@ -35,7 +35,7 @@ public class ConversorNumeroRomanoTest {
     @Test
     public void deveRetornarUmNumeroInteiroAPartirCodigoNumeralCinco() {
         // -- 01_Cenário
-        ConversorNumeroRomano c = ConversorNumeroRomano.builder().build();
+        ConversorNumeroRomanoService c = ConversorNumeroRomanoService.builder().build();
 
         // -- 02_Ação
         int numero = c.converte("V");
@@ -50,7 +50,7 @@ public class ConversorNumeroRomanoTest {
     @Test
     public void deveRetornarUmNumeroInteiroAPartirCodigoNumeralDois() {
         // -- 01_Cenário
-        ConversorNumeroRomano c = ConversorNumeroRomano.builder().build();
+        ConversorNumeroRomanoService c = ConversorNumeroRomanoService.builder().build();
 
         // -- 02_Ação
         int numero = c.converteRefatorado("II");
@@ -65,7 +65,7 @@ public class ConversorNumeroRomanoTest {
     public void deveRetornarUmNumeroInteiroAPartirDeQualquerCodigoNumeralADireita() {
         // -- 01_Cenário
         String valorNumeralRomano = "XXX";
-        ConversorNumeroRomano c = ConversorNumeroRomano.builder().build();
+        ConversorNumeroRomanoService c = ConversorNumeroRomanoService.builder().build();
 
         // -- 02_Ação
         int numero = c.converteRefatorado(valorNumeralRomano);
@@ -80,7 +80,7 @@ public class ConversorNumeroRomanoTest {
     public void deveRetornarUmNumeroInteiroAPartirDeQualquerCodigoNumeralMenorAEsquerda() {
         // -- 01_Cenário
         String valorNumeralRomano = "IX";
-        ConversorNumeroRomano c = ConversorNumeroRomano.builder().build();
+        ConversorNumeroRomanoService c = ConversorNumeroRomanoService.builder().build();
 
         // -- 02_Ação
         int numero = c.converteRefatorado(valorNumeralRomano);
@@ -95,7 +95,7 @@ public class ConversorNumeroRomanoTest {
     public void deveRetornarUmNumeroInteiroAPartirDeQualquerCodigoNumeralMenorADireita() {
         // -- 01_Cenário
         String valorNumeralRomano = "XXIV";
-        ConversorNumeroRomano c = ConversorNumeroRomano.builder().build();
+        ConversorNumeroRomanoService c = ConversorNumeroRomanoService.builder().build();
 
         // -- 02_Ação
         int numero = c.converteRefatorado(valorNumeralRomano);

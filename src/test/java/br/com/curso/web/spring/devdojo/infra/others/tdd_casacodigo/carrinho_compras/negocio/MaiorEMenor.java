@@ -1,5 +1,7 @@
-package br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.model;
+package br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.carrinho_compras.negocio;
 
+import br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.carrinho_compras.model.CarrinhoDeCompras;
+import br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.carrinho_compras.model.Produto;
 import lombok.*;
 
 import java.util.Objects;

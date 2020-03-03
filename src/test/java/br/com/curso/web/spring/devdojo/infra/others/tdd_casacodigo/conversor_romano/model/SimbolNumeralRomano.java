@@ -1,4 +1,4 @@
-package br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.model;
+package br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.conversor_romano.model;
 
 import java.util.EnumSet;
 import java.util.HashMap;

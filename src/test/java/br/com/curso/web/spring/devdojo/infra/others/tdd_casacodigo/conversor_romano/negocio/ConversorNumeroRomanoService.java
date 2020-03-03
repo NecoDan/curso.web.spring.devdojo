@@ -1,6 +1,6 @@
-package br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.negocio;
+package br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.conversor_romano.negocio;
 
-import br.com.curso.web.spring.devdojo.infra.others.tddcasacodigo.model.SimbolNumeralRomano;
+import br.com.curso.web.spring.devdojo.infra.others.tdd_casacodigo.conversor_romano.model.SimbolNumeralRomano;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import java.util.Objects;
 @Slf4j
 @RequiredArgsConstructor
 @Builder
-public class ConversorNumeroRomano {
+public class ConversorNumeroRomanoService {
 
     public int converte(String valor) {
         return this.converter(valor);
