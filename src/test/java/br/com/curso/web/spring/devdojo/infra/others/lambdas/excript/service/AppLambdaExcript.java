@@ -1,4 +1,4 @@
-package br.com.curso.web.spring.devdojo.infra.others;
+package br.com.curso.web.spring.devdojo.infra.others.lambdas.excript.service;
 
 /*
  # As expressões lambdas podem ser definidas como métodos anônimos. Não são executadas em si próprios,expressões que não posuem nome.
@@ -23,24 +23,15 @@ package br.com.curso.web.spring.devdojo.infra.others;
  # Stream = é uma seqência de elementos. Nesta há funções para operações em massa, provomendo assim, fácil manipulação dos elementos
  */
 
+import br.com.curso.web.spring.devdojo.infra.others.lambdas.excript.model.Num;
+import br.com.curso.web.spring.devdojo.infra.others.lambdas.excript.model.ValorNumerico;
+import br.com.curso.web.spring.devdojo.infra.others.lambdas.excript.model.ValorNumericoSecond;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-interface Num {
-    double getValor();
-}
-
-interface ValorNumerico {
-    boolean testador(int numero);
-};
-
-interface ValorNumericoSecond {
-    boolean testador(int numero, int numero2);
-};
-
-
-public class LambdaUtilExcriptBrasil {
+public class AppLambdaExcript {
     public static void main(String[] args) {
         executaTesteLambdasIteracaoInterna07();
     }
@@ -158,5 +149,4 @@ public class LambdaUtilExcriptBrasil {
         System.out.println("Imprime os nomes dos estados com mais de 10 caracteres:");
         filtroStream(estados, (s) -> s.length() > 10);
     }
-
 }
