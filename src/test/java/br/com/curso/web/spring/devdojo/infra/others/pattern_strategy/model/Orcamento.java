@@ -4,9 +4,10 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString
+@Builder
 @NoArgsConstructor
+@ToString
 @AllArgsConstructor
-class Orcamento {
+public class Orcamento {
     private double valor;
 }

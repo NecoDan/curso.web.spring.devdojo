@@ -1,6 +1,6 @@
-package br.com.curso.web.spring.devdojo.infra.others.lambdas.algaworks.repository;
+package br.com.curso.web.spring.devdojo.infra.others.lambdas.algaworks.fatura.repository;
 
-import br.com.curso.web.spring.devdojo.infra.others.lambdas.algaworks.model.Fatura;
+import br.com.curso.web.spring.devdojo.infra.others.lambdas.algaworks.fatura.model.Fatura;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

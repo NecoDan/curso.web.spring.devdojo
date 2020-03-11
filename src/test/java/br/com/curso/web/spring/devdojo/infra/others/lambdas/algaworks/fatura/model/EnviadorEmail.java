@@ -1,4 +1,4 @@
-package br.com.curso.web.spring.devdojo.infra.others.lambdas.algaworks.model;
+package br.com.curso.web.spring.devdojo.infra.others.lambdas.algaworks.fatura.model;
 
 public class EnviadorEmail {
     public void enviar(String to, String mensagem) {

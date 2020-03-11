@@ -12,4 +12,5 @@ class ApplicationTests {
 	void contextLoads() {
 		System.out.println(UUID.randomUUID());
 	}
+
 }
