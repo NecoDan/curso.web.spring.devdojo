@@ -7,8 +7,9 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.0.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
+
     <groupId>br.com.curso.web.spring.devdojo</groupId>
     <artifactId>curso.web.spring.devdojo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -95,11 +96,11 @@
             <artifactId>mybatis-ehcache</artifactId>
             <version>1.1.0</version>
         </dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>2.0.3</version>
-		</dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.3</version>
+        </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
