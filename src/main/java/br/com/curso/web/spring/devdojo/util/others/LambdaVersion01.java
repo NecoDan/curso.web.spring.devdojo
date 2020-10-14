@@ -1,4 +1,4 @@
-package br.com.curso.web.spring.devdojo.infra.others;
+package br.com.curso.web.spring.devdojo.util.others;
 
 import java.io.IOException;
 import java.util.Objects;

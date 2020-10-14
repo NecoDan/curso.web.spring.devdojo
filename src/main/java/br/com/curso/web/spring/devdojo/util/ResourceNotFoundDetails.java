@@ -1,4 +1,4 @@
-package br.com.curso.web.spring.devdojo.infra;
+package br.com.curso.web.spring.devdojo.util;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package br.com.curso.web.spring.devdojo.infra.exceptions;
+package br.com.curso.web.spring.devdojo.util.exceptions;
 
 public class ValidacaoException extends Exception {
     public ValidacaoException(String mensagem) {

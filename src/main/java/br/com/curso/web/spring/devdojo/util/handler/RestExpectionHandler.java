@@ -1,7 +1,7 @@
-package br.com.curso.web.spring.devdojo.handler;
+package br.com.curso.web.spring.devdojo.util.handler;
 
-import br.com.curso.web.spring.devdojo.infra.ResourceNotFoundDetails;
-import br.com.curso.web.spring.devdojo.infra.util.ResourceNotFoundException;
+import br.com.curso.web.spring.devdojo.util.ResourceNotFoundDetails;
+import br.com.curso.web.spring.devdojo.util.util.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

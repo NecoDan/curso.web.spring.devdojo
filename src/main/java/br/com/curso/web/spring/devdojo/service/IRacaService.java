@@ -1,6 +1,6 @@
 package br.com.curso.web.spring.devdojo.service;
 
-import br.com.curso.web.spring.devdojo.infra.exceptions.ValidacaoException;
+import br.com.curso.web.spring.devdojo.util.exceptions.ValidacaoException;
 import br.com.curso.web.spring.devdojo.model.Raca;
 
 import java.util.Collection;

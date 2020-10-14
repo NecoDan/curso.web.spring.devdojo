@@ -1,4 +1,4 @@
-package br.com.curso.web.spring.devdojo.infra.util;
+package br.com.curso.web.spring.devdojo.util.util;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
